@@ -158,16 +158,16 @@ export const ChairmanPage: React.FC = () => {
 
   if (!isChairman) {
     return (
-      <div className="max-w-2xl mx-auto py-12 text-center space-y-6">
-        <div className="w-16 h-16 rounded-2xl bg-amber-950/60 border border-amber-500/40 flex items-center justify-center mx-auto text-amber-400">
-          <ShieldAlert className="w-8 h-8" />
+      <div className="max-w-2xl mx-auto py-12 text-center space-y-6 px-4">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-amber-950/60 border border-amber-500/40 flex items-center justify-center mx-auto text-amber-400">
+          <ShieldAlert className="w-7 h-7 sm:w-8 sm:h-8" />
         </div>
         <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-white">Organizer Restricted Area</h2>
-          <p className="text-sm text-gray-400">
+          <h2 className="text-xl sm:text-2xl font-bold text-white">Organizer Restricted Area</h2>
+          <p className="text-xs sm:text-sm text-gray-400">
             This dashboard is dedicated to the VeritasDAO Chairman/Owner address for organizing sequential elections and adding candidates.
           </p>
-          <p className="text-xs text-gray-500 font-mono pt-2">
+          <p className="text-[11px] sm:text-xs text-gray-500 font-mono pt-2 break-all">
             On-Chain Chairman Address: {ownerAddress || '...'}
           </p>
         </div>
@@ -176,20 +176,20 @@ export const ChairmanPage: React.FC = () => {
   }
 
   return (
-    <div className="max-w-5xl mx-auto py-4 space-y-10">
+    <div className="max-w-5xl mx-auto py-2 sm:py-4 space-y-6 sm:space-y-10">
       {/* Chairman Banner */}
-      <div className="p-6 sm:p-8 bg-gradient-to-r from-amber-950/40 via-dark-card to-dark-card border border-amber-500/30 rounded-3xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
-            <Crown className="w-7 h-7" />
+      <div className="p-5 sm:p-8 bg-gradient-to-r from-amber-950/40 via-gray-900 to-gray-900 border border-amber-500/30 rounded-3xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
+        <div className="flex items-center gap-3.5 sm:gap-4">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold shrink-0">
+            <Crown className="w-6 h-6 sm:w-7 sm:h-7" />
           </div>
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-amber-400">
               Verified Organizer Access
             </span>
-            <h1 className="text-2xl font-bold text-white">Chairman Command Hub</h1>
-            <p className="text-xs text-gray-400 font-mono">
-              Organizer Address: {address}
+            <h1 className="text-xl sm:text-2xl font-bold text-white">Chairman Command Hub</h1>
+            <p className="text-[11px] sm:text-xs text-gray-400 font-mono truncate max-w-xs sm:max-w-md">
+              Organizer: {address}
             </p>
           </div>
         </div>
@@ -208,7 +208,7 @@ export const ChairmanPage: React.FC = () => {
                 rel="noreferrer"
                 className="underline text-emerald-400 flex items-center gap-1 mt-1"
               >
-                View on BohrScan <ExternalLink className="w-3 h-3" />
+                <span>View on BohrScan</span> <ExternalLink className="w-3 h-3" />
               </a>
             )}
           </div>
@@ -218,18 +218,18 @@ export const ChairmanPage: React.FC = () => {
       {errorMsg && (
         <div className="p-4 bg-red-950/50 border border-red-500/30 rounded-2xl flex items-start gap-3 text-xs text-red-200 animate-fadeIn">
           <AlertCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
-          <p>{errorMsg}</p>
+          <p className="break-all">{errorMsg}</p>
         </div>
       )}
 
       {/* Section 1: Create New Sequential Election */}
-      <div className="p-6 sm:p-8 bg-dark-card border border-dark-border rounded-3xl space-y-6 shadow-xl">
+      <div className="p-5 sm:p-8 bg-gray-900/90 border border-gray-800 rounded-3xl space-y-5 sm:space-y-6 shadow-xl">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400">
+          <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 shrink-0">
             <PlusCircle className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">1. Create New Election</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-white">1. Create New Election</h2>
             <p className="text-xs text-gray-400">Initialize a new governance cycle in Created state</p>
           </div>
         </div>
@@ -243,7 +243,7 @@ export const ChairmanPage: React.FC = () => {
               placeholder="e.g. Q4 Protocol Treasury Oversight Committee"
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
-              className="w-full px-4 py-2.5 bg-dark-surface border border-dark-border rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
+              className="w-full px-3.5 sm:px-4 py-2.5 bg-gray-950 border border-gray-800 rounded-xl text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
             />
           </div>
 
@@ -255,7 +255,7 @@ export const ChairmanPage: React.FC = () => {
               placeholder="Provide context, responsibilities, and scope for this election..."
               value={newDesc}
               onChange={(e) => setNewDesc(e.target.value)}
-              className="w-full px-4 py-2.5 bg-dark-surface border border-dark-border rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
+              className="w-full px-3.5 sm:px-4 py-2.5 bg-gray-950 border border-gray-800 rounded-xl text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
             />
           </div>
 
@@ -265,7 +265,7 @@ export const ChairmanPage: React.FC = () => {
               <select
                 value={startOffsetHours}
                 onChange={(e) => setStartOffsetHours(e.target.value)}
-                className="w-full px-4 py-2.5 bg-dark-surface border border-dark-border rounded-xl text-sm text-white focus:outline-none focus:border-emerald-500"
+                className="w-full px-3.5 sm:px-4 py-2.5 bg-gray-950 border border-gray-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-emerald-500"
               >
                 <option value="0">Immediate upon opening</option>
                 <option value="1">1 Hour after opening</option>
@@ -279,7 +279,7 @@ export const ChairmanPage: React.FC = () => {
               <select
                 value={durationDays}
                 onChange={(e) => setDurationDays(e.target.value)}
-                className="w-full px-4 py-2.5 bg-dark-surface border border-dark-border rounded-xl text-sm text-white focus:outline-none focus:border-emerald-500"
+                className="w-full px-3.5 sm:px-4 py-2.5 bg-gray-950 border border-gray-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-emerald-500"
               >
                 <option value="1">1 Day</option>
                 <option value="3">3 Days</option>
@@ -292,7 +292,7 @@ export const ChairmanPage: React.FC = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="flex items-center justify-center gap-2 px-6 py-3 font-bold text-white bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-700 rounded-xl transition-all shadow-glow-subtle cursor-pointer"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 font-bold text-white bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-800 rounded-xl transition-all shadow-sm cursor-pointer active:scale-95"
           >
             {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <PlusCircle className="w-4 h-4" />}
             <span>Initialize Election On-Chain</span>
@@ -301,13 +301,13 @@ export const ChairmanPage: React.FC = () => {
       </div>
 
       {/* Section 2: Candidate Management */}
-      <div className="p-6 sm:p-8 bg-dark-card border border-dark-border rounded-3xl space-y-6 shadow-xl">
+      <div className="p-5 sm:p-8 bg-gray-900/90 border border-gray-800 rounded-3xl space-y-5 sm:space-y-6 shadow-xl">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-teal-500/10 text-teal-400">
+          <div className="p-2 rounded-xl bg-teal-500/10 text-teal-400 shrink-0">
             <UserPlus className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">2. Register Candidates</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-white">2. Register Candidates</h2>
             <p className="text-xs text-gray-400">
               Add candidates to upcoming elections before opening (locks permanently once voting opens)
             </p>
@@ -315,7 +315,7 @@ export const ChairmanPage: React.FC = () => {
         </div>
 
         {createdElections.length === 0 ? (
-          <p className="text-xs text-gray-400 p-4 bg-dark-surface rounded-xl border border-dark-border">
+          <p className="text-xs text-gray-400 p-4 bg-gray-950 rounded-xl border border-gray-800">
             No elections currently in Created state. Create an election above first.
           </p>
         ) : (
@@ -325,7 +325,7 @@ export const ChairmanPage: React.FC = () => {
               <select
                 value={targetElectionId || (createdElections[0] ? Number(createdElections[0].id) : 0)}
                 onChange={(e) => setTargetElectionId(Number(e.target.value))}
-                className="w-full px-4 py-2.5 bg-dark-surface border border-dark-border rounded-xl text-sm text-white focus:outline-none focus:border-emerald-500"
+                className="w-full px-3.5 sm:px-4 py-2.5 bg-gray-950 border border-gray-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-emerald-500"
               >
                 {createdElections.map((elec) => (
                   <option key={Number(elec.id)} value={Number(elec.id)}>
@@ -344,7 +344,7 @@ export const ChairmanPage: React.FC = () => {
                   placeholder="e.g. Dr. Jane Doe"
                   value={candidateName}
                   onChange={(e) => setCandidateName(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-dark-surface border border-dark-border rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
+                  className="w-full px-3.5 sm:px-4 py-2.5 bg-gray-950 border border-gray-800 rounded-xl text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
                 />
               </div>
 
@@ -356,7 +356,7 @@ export const ChairmanPage: React.FC = () => {
                   placeholder="e.g. Core Protocol Contributor & Security Specialist"
                   value={candidateDesc}
                   onChange={(e) => setCandidateDesc(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-dark-surface border border-dark-border rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
+                  className="w-full px-3.5 sm:px-4 py-2.5 bg-gray-950 border border-gray-800 rounded-xl text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
                 />
               </div>
             </div>
@@ -364,7 +364,7 @@ export const ChairmanPage: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="flex items-center justify-center gap-2 px-6 py-3 font-bold text-white bg-teal-600 hover:bg-teal-500 disabled:bg-gray-700 rounded-xl transition-all shadow-glow-subtle cursor-pointer"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 font-bold text-white bg-teal-600 hover:bg-teal-500 disabled:bg-gray-800 rounded-xl transition-all shadow-sm cursor-pointer active:scale-95"
             >
               {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <UserPlus className="w-4 h-4" />}
               <span>Add Candidate On-Chain</span>
@@ -374,14 +374,14 @@ export const ChairmanPage: React.FC = () => {
       </div>
 
       {/* Section 3: Open & Finalize Lifecycle Controls */}
-      <div className="p-6 sm:p-8 bg-dark-card border border-dark-border rounded-3xl space-y-6 shadow-xl">
+      <div className="p-5 sm:p-8 bg-gray-900/90 border border-gray-800 rounded-3xl space-y-5 sm:space-y-6 shadow-xl">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400">
+          <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400 shrink-0">
             <PlayCircle className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">3. Lifecycle Controls</h2>
-            <p className="text-xs text-gray-400">Open elections with &gt;= 2 candidates or finalize concluded voting</p>
+            <h2 className="text-lg sm:text-xl font-bold text-white">3. Lifecycle Controls</h2>
+            <p className="text-xs text-gray-400">Open elections with &ge; 2 candidates or finalize concluded voting</p>
           </div>
         </div>
 
@@ -398,7 +398,7 @@ export const ChairmanPage: React.FC = () => {
                 return (
                   <div
                     key={Number(elec.id)}
-                    className="p-4 bg-dark-surface rounded-2xl border border-dark-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs"
+                    className="p-4 bg-gray-950 rounded-2xl border border-gray-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs"
                   >
                     <div>
                       <div className="font-bold text-white text-sm">
@@ -412,7 +412,7 @@ export const ChairmanPage: React.FC = () => {
                     <button
                       disabled={!canOpen || isLoading}
                       onClick={() => handleOpenElection(Number(elec.id))}
-                      className="px-4 py-2 font-bold text-white bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-700 disabled:cursor-not-allowed rounded-xl transition-all cursor-pointer flex items-center gap-1.5"
+                      className="w-full sm:w-auto px-4 py-2 font-bold text-white bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-800 disabled:cursor-not-allowed rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 active:scale-95"
                     >
                       <PlayCircle className="w-4 h-4" />
                       <span>Open for Voting</span>
@@ -433,7 +433,7 @@ export const ChairmanPage: React.FC = () => {
               {openOrClosedElections.map((elec) => (
                 <div
                   key={Number(elec.id)}
-                  className="p-4 bg-dark-surface rounded-2xl border border-dark-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs"
+                  className="p-4 bg-gray-950 rounded-2xl border border-gray-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs"
                 >
                   <div>
                     <div className="font-bold text-white text-sm">
@@ -447,7 +447,7 @@ export const ChairmanPage: React.FC = () => {
                   <button
                     disabled={isLoading}
                     onClick={() => handleFinalizeElection(Number(elec.id))}
-                    className="px-4 py-2 font-bold text-white bg-amber-600 hover:bg-amber-500 disabled:bg-gray-700 rounded-xl transition-all cursor-pointer flex items-center gap-1.5"
+                    className="w-full sm:w-auto px-4 py-2 font-bold text-white bg-amber-600 hover:bg-amber-500 disabled:bg-gray-800 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 active:scale-95"
                   >
                     <Trophy className="w-4 h-4" />
                     <span>Finalize Result</span>
@@ -461,4 +461,3 @@ export const ChairmanPage: React.FC = () => {
     </div>
   );
 };
-

@@ -127,18 +127,18 @@ export const GovernancePage: React.FC = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-4 space-y-10">
+    <div className="max-w-4xl mx-auto py-2 sm:py-4 space-y-6 sm:space-y-10">
       {/* Header */}
       <div className="space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 text-[11px] sm:text-xs font-semibold">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>Decentralized Proposal System (Stretch Goal)</span>
+          <span>Decentralized Proposal System</span>
         </div>
-        <h1 className="text-3xl font-extrabold text-white flex items-center gap-2.5">
-          <BarChart3 className="w-8 h-8 text-emerald-400" />
-          Community Election Proposals
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-white flex items-center gap-2.5">
+          <BarChart3 className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400 shrink-0" />
+          <span>Community Proposals</span>
         </h1>
-        <p className="text-sm text-gray-400">
+        <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
           Empowering token holders to propose new sequential elections without relying exclusively on the Chairman.
         </p>
       </div>
@@ -156,7 +156,7 @@ export const GovernancePage: React.FC = () => {
                 rel="noreferrer"
                 className="underline text-emerald-400 flex items-center gap-1 mt-1"
               >
-                View on BohrScan <ExternalLink className="w-3 h-3" />
+                <span>View on BohrScan</span> <ExternalLink className="w-3 h-3" />
               </a>
             )}
           </div>
@@ -166,19 +166,19 @@ export const GovernancePage: React.FC = () => {
       {errorMsg && (
         <div className="p-4 bg-red-950/50 border border-red-500/30 rounded-2xl flex items-start gap-3 text-xs text-red-200 animate-fadeIn">
           <AlertCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
-          <p>{errorMsg}</p>
+          <p className="break-all">{errorMsg}</p>
         </div>
       )}
 
       {/* Active Proposals List */}
       <div className="space-y-4">
-        <h3 className="text-xl font-bold text-white flex items-center gap-2">
+        <h3 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
           <Users className="w-5 h-5 text-emerald-400" />
-          Community Proposals
+          <span>Community Proposals</span>
         </h3>
 
         {proposals.length === 0 ? (
-          <div className="p-8 bg-dark-card border border-dark-border rounded-3xl text-center text-gray-400 space-y-2">
+          <div className="p-6 sm:p-8 bg-gray-900/80 border border-gray-800 rounded-3xl text-center text-gray-400 space-y-2">
             <p className="text-sm">No community proposals created yet.</p>
             <p className="text-xs text-gray-500">Submit the first community proposal below!</p>
           </div>
@@ -191,11 +191,11 @@ export const GovernancePage: React.FC = () => {
               return (
                 <div
                   key={Number(prop.id)}
-                  className="p-6 bg-dark-card border border-dark-border rounded-3xl space-y-4 shadow-lg"
+                  className="p-5 sm:p-6 bg-gray-900/80 border border-gray-800 rounded-3xl space-y-4 shadow-lg"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="space-y-1">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-xs font-mono font-bold text-gray-400">
                           Proposal #{Number(prop.id)}
                         </span>
@@ -215,12 +215,12 @@ export const GovernancePage: React.FC = () => {
                           </span>
                         )}
                       </div>
-                      <h4 className="text-lg font-bold text-white">{prop.title}</h4>
-                      <p className="text-xs text-gray-300">{prop.description}</p>
+                      <h4 className="text-base sm:text-lg font-bold text-white">{prop.title}</h4>
+                      <p className="text-xs text-gray-300 leading-relaxed">{prop.description}</p>
                     </div>
 
-                    <div className="text-right shrink-0">
-                      <span className="text-xs text-gray-400 block">Proposer:</span>
+                    <div className="text-left sm:text-right shrink-0 pt-1 sm:pt-0">
+                      <span className="text-[10px] sm:text-xs text-gray-400 block">Proposer:</span>
                       <span className="text-xs font-mono text-emerald-400">
                         {prop.proposer.slice(0, 6)}...{prop.proposer.slice(-4)}
                       </span>
@@ -237,7 +237,7 @@ export const GovernancePage: React.FC = () => {
                         {progressPct}% (Target: {PROPOSAL_SUPPORT_THRESHOLD} VRT)
                       </span>
                     </div>
-                    <div className="w-full bg-dark-surface rounded-full h-2 overflow-hidden border border-dark-border">
+                    <div className="w-full bg-gray-950 rounded-full h-2 overflow-hidden border border-gray-800">
                       <div
                         className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-500"
                         style={{ width: `${progressPct}%` }}
@@ -246,12 +246,12 @@ export const GovernancePage: React.FC = () => {
                   </div>
 
                   {/* Action buttons */}
-                  <div className="pt-2 flex items-center justify-end gap-3">
+                  <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2.5">
                     {prop.status === ProposalStatus.Active && (
                       <button
                         disabled={isLoading}
                         onClick={() => handleSupport(Number(prop.id))}
-                        className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-xl transition-all cursor-pointer shadow-glow-subtle active:scale-95"
+                        className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 active:scale-95 rounded-xl transition-all cursor-pointer shadow-sm"
                       >
                         <ThumbsUp className="w-3.5 h-3.5" />
                         <span>Support with My Weight ({formattedTokenBalance} VRT)</span>
@@ -261,7 +261,7 @@ export const GovernancePage: React.FC = () => {
                       <button
                         disabled={isLoading}
                         onClick={() => handleExecute(Number(prop.id))}
-                        className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-amber-600 hover:bg-amber-500 rounded-xl transition-all cursor-pointer active:scale-95"
+                        className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-amber-600 hover:bg-amber-500 active:scale-95 rounded-xl transition-all cursor-pointer"
                       >
                         <PlayCircle className="w-3.5 h-3.5" />
                         <span>Execute & Generate On-Chain Election</span>
@@ -276,13 +276,13 @@ export const GovernancePage: React.FC = () => {
       </div>
 
       {/* Propose Election Form */}
-      <div className="p-6 sm:p-8 bg-dark-card border border-dark-border rounded-3xl space-y-6 shadow-xl">
+      <div className="p-5 sm:p-8 bg-gray-900/90 border border-gray-800 rounded-3xl space-y-5 sm:space-y-6 shadow-xl">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400">
+          <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 shrink-0">
             <PlusCircle className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-white">Create a Community Proposal</h3>
+            <h3 className="text-lg sm:text-xl font-bold text-white">Create a Community Proposal</h3>
             <p className="text-xs text-gray-400">
               Requires a minimum of 50 $VRT$ governance token balance to propose
             </p>
@@ -309,7 +309,7 @@ export const GovernancePage: React.FC = () => {
                 placeholder="e.g. Protocol Risk Assessment Working Group"
                 value={propTitle}
                 onChange={(e) => setPropTitle(e.target.value)}
-                className="w-full px-4 py-2.5 bg-dark-surface border border-dark-border rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
+                className="w-full px-3.5 sm:px-4 py-2.5 bg-gray-950 border border-gray-800 rounded-xl text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
               />
             </div>
 
@@ -321,13 +321,13 @@ export const GovernancePage: React.FC = () => {
                 placeholder="Detail the rationale and mandate for this proposed election..."
                 value={propDesc}
                 onChange={(e) => setPropDesc(e.target.value)}
-                className="w-full px-4 py-2.5 bg-dark-surface border border-dark-border rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
+                className="w-full px-3.5 sm:px-4 py-2.5 bg-gray-950 border border-gray-800 rounded-xl text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
               />
             </div>
 
             {/* Candidates */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 bg-dark-surface rounded-2xl border border-dark-border space-y-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2">
+              <div className="p-4 bg-gray-950 rounded-2xl border border-gray-800 space-y-2">
                 <span className="text-xs font-bold text-emerald-400">Initial Candidate 1</span>
                 <input
                   type="text"
@@ -335,18 +335,18 @@ export const GovernancePage: React.FC = () => {
                   placeholder="Candidate Name"
                   value={candidate1Name}
                   onChange={(e) => setCandidate1Name(e.target.value)}
-                  className="w-full px-3 py-2 bg-dark-card border border-dark-border rounded-lg text-xs text-white"
+                  className="w-full px-3 py-2 bg-gray-900 border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
                 />
                 <input
                   type="text"
                   placeholder="Platform / Bio"
                   value={candidate1Desc}
                   onChange={(e) => setCandidate1Desc(e.target.value)}
-                  className="w-full px-3 py-2 bg-dark-card border border-dark-border rounded-lg text-xs text-white"
+                  className="w-full px-3 py-2 bg-gray-900 border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
                 />
               </div>
 
-              <div className="p-4 bg-dark-surface rounded-2xl border border-dark-border space-y-2">
+              <div className="p-4 bg-gray-950 rounded-2xl border border-gray-800 space-y-2">
                 <span className="text-xs font-bold text-teal-400">Initial Candidate 2</span>
                 <input
                   type="text"
@@ -354,14 +354,14 @@ export const GovernancePage: React.FC = () => {
                   placeholder="Candidate Name"
                   value={candidate2Name}
                   onChange={(e) => setCandidate2Name(e.target.value)}
-                  className="w-full px-3 py-2 bg-dark-card border border-dark-border rounded-lg text-xs text-white"
+                  className="w-full px-3 py-2 bg-gray-900 border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
                 />
                 <input
                   type="text"
                   placeholder="Platform / Bio"
                   value={candidate2Desc}
                   onChange={(e) => setCandidate2Desc(e.target.value)}
-                  className="w-full px-3 py-2 bg-dark-card border border-dark-border rounded-lg text-xs text-white"
+                  className="w-full px-3 py-2 bg-gray-900 border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
                 />
               </div>
             </div>
@@ -369,7 +369,7 @@ export const GovernancePage: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="flex items-center justify-center gap-2 px-6 py-3 font-bold text-white bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-700 rounded-xl transition-all shadow-glow-emerald cursor-pointer"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 font-bold text-white bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-800 rounded-xl transition-all shadow-sm cursor-pointer active:scale-95"
             >
               {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <PlusCircle className="w-4 h-4" />}
               <span>Submit Community Proposal (50 VRT Threshold)</span>
@@ -380,4 +380,3 @@ export const GovernancePage: React.FC = () => {
     </div>
   );
 };
-

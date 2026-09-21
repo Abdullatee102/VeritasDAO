@@ -1,4 +1,5 @@
 # VeritasDAO 🏛️
+
 ### Transparent, Verifiable, and Sequential On-Chain Governance
 
 [![Solidity](https://img.shields.io/badge/Solidity-0.8.28-363636?logo=solidity)](https://soliditylang.org/)
@@ -7,7 +8,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![Wagmi](https://img.shields.io/badge/Wagmi-v2.14-black)](https://wagmi.sh/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4.0-38BDF8?logo=tailwindcss)](https://tailwindcss.com/)
-[![Network](https://img.shields.io/badge/Network-Bohr_Testnet_(968)-059669)](https://scan.bohr.life/)
+[![Network](<https://img.shields.io/badge/Network-Bohr_Testnet_(968)-059669>)](https://scan.bohr.life/)
 
 **VeritasDAO** is a production-grade Web3 decentralized governance and election protocol deployed on **Bohr Testnet**. It enables communities and decentralized autonomous organizations to organize sequential, tamper-proof elections, vote with snapshot-weighted governance token balances ($VRT$), deterministically calculate winners on-chain, and maintain a permanent, queryable historical record of all elections.
 
@@ -43,22 +44,23 @@
 
 VeritasDAO is live and fully verified on the **Bohr Testnet**:
 
-| Parameter | Value |
-| :--- | :--- |
-| **Network Name** | Bohr Testnet |
-| **Chain ID** | `968` |
-| **RPC Endpoint** | `https://rpc.bohr.life` |
-| **Block Explorer** | [https://scan.bohr.life](https://scan.bohr.life) |
-| **Native Gas Token** | `BOT` |
-| **VeritasDAO Core Contract** | [`0xBBa1e3CbaC23E0B25ACa52244858B66Dec9979eb`](https://scan.bohr.life/address/0xBBa1e3CbaC23E0B25ACa52244858B66Dec9979eb) |
+| Parameter                            | Value                                                                                                                     |
+| :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------ |
+| **Network Name**                     | Bohr Testnet                                                                                                              |
+| **Chain ID**                         | `968`                                                                                                                     |
+| **RPC Endpoint**                     | `https://rpc.bohr.life`                                                                                                   |
+| **Block Explorer**                   | [https://scan.bohr.life](https://scan.bohr.life)                                                                          |
+| **Native Gas Token**                 | `BOT`                                                                                                                     |
+| **VeritasDAO Core Contract**         | [`0xBBa1e3CbaC23E0B25ACa52244858B66Dec9979eb`](https://scan.bohr.life/address/0xBBa1e3CbaC23E0B25ACa52244858B66Dec9979eb) |
 | **Veritas Governance Token ($VRT$)** | [`0xFbe652f579E6c3605269cF4Cd5ce8C660f7ea370`](https://scan.bohr.life/address/0xFbe652f579E6c3605269cF4Cd5ce8C660f7ea370) |
-| **Chairman / Deployer Address** | `0x97184EBAEB9FDCe449d5FbaF1311601005F8E811` |
+| **Chairman / Deployer Address**      | `0x97184EBAEB9FDCe449d5FbaF1311601005F8E811`                                                                              |
 
 ### Live Deployed State on Bohr Testnet
-- **Election #1 (*Finalized Archive*)**: *"Genesis Governance Council 2026"* — Finalized with winning candidate *"Dr. Elena Vance (Core Protocol Architecture)"* (Tx: `0x789b708e9067b848243be4443a6081467a149c5eb4519965d1305417ec62fbc0`).
-- **Election #2 (*Open Live Ballot*)**: *"Treasury Capital Allocation Committee"* — Open with 3 competing candidate proposals ready for community votes.
-- **Election #3 (*Upcoming Setup*)**: *"Ecosystem Grants & Bounties Reviewer"* — Configured in setup stage.
-- **Proposal #1 (*Community Proposal*)**: *"AI Security Audit Working Group"* — Active community proposal gathering VRT weight.
+
+- **Election #1 (_Finalized Archive_)**: _"Genesis Governance Council 2026"_ — Finalized with winning candidate _"Dr. Elena Vance (Core Protocol Architecture)"_ (Tx: `0x789b708e9067b848243be4443a6081467a149c5eb4519965d1305417ec62fbc0`).
+- **Election #2 (_Open Live Ballot_)**: _"Treasury Capital Allocation Committee"_ — Open with 3 competing candidate proposals ready for community votes.
+- **Election #3 (_Upcoming Setup_)**: _"Ecosystem Grants & Bounties Reviewer"_ — Configured in setup stage.
+- **Proposal #1 (_Community Proposal_)**: _"AI Security Audit Working Group"_ — Active community proposal gathering VRT weight.
 
 ---
 
@@ -91,6 +93,7 @@ graph TD
 ```
 
 ### Key Security Safeguards
+
 1. **No Result Manipulation**: The Chairman/Organizer cannot pick winners, edit vote counts, or alter election outcomes. The contract determines the winner algorithmically.
 2. **Double-Voting Prevention**: An on-chain mapping `hasVoted[electionId][voterAddress]` ensures each voter can cast at most one ballot per election.
 3. **Token Balance Snapshot**: `vote()` records `governanceToken.balanceOf(msg.sender)` at the exact block execution time. Transferring tokens afterwards has zero effect on past ballots.
@@ -151,12 +154,14 @@ VeritasDAO/
 The smart contract test suite includes **19 automated unit & integration tests** covering registration, double voting prevention, candidate isolation, token-weighted tallying, sequential elections, tie breaking, community proposals, and cooldown faucet claims.
 
 ### Run Smart Contract Tests
+
 ```bash
 cd contract
 forge test -vvv
 ```
 
 **Test Results Summary**:
+
 ```
 Ran 19 tests for test/VeritasDAO.t.sol:VeritasDAOTest
 [PASS] test_AddCandidate_Success() (gas: 115749)
@@ -186,11 +191,13 @@ Suite result: ok. 19 passed; 0 failed; 0 skipped
 ## 💻 Local Development Setup
 
 ### 1. Prerequisites
+
 - [Foundry](https://getfoundry.sh/) (`forge`, `cast`)
 - [Node.js](https://nodejs.org/) (v18+ or v20+)
 - [npm](https://www.npmjs.com/)
 
 ### 2. Smart Contract Setup & Local Build
+
 ```bash
 # Clone the repository
 git clone https://github.com/your-repo/VeritasDAO.git
@@ -204,6 +211,7 @@ forge test
 ```
 
 ### 3. Frontend Setup & Local Development
+
 ```bash
 cd ../frontend
 
@@ -213,9 +221,11 @@ npm install
 # Run Vite development server
 npm run dev
 ```
+
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### 4. Frontend Production Build & Linting
+
 ```bash
 # Run linter
 npm run lint
@@ -232,7 +242,7 @@ npm run build
 2. **Claim Testnet $VRT$**: Click the **Claim $VRT$** button in the header. Claim 100 free $VRT$ governance tokens from the on-chain faucet.
 3. **Register Voter Profile**: Navigate to **Registration**, enter your name and email/handle, and submit your one-time on-chain registration transaction.
 4. **Explore Elections**: Browse the **Elections** tab to view open, upcoming, and finalized sequential elections.
-5. **Cast Your Vote**: Open an active election (e.g. *Treasury Capital Allocation Committee*), review candidate agendas, select your preferred candidate, inspect your snapshot voting weight, and click **Submit On-Chain Vote**.
+5. **Cast Your Vote**: Open an active election (e.g. _Treasury Capital Allocation Committee_), review candidate agendas, select your preferred candidate, inspect your snapshot voting weight, and click **Submit On-Chain Vote**.
 6. **Track Live Results**: Watch candidate vote tallies update in real-time as Bohr Testnet blocks are minted.
 7. **Inspect Election History**: Visit **History** to view all permanently archived elections with winning candidates, total weights, and block timestamps.
 8. **Decentralized Governance**: Visit **Proposals** to sponsor or vote on new community-initiated election ballots.
