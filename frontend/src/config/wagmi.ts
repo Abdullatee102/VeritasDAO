@@ -17,6 +17,8 @@ export const wagmiAdapter = new WagmiAdapter({
 
 export const config = wagmiAdapter.wagmiConfig;
 
+const appUrl = import.meta.env.VITE_APP_URL || (typeof window !== 'undefined' ? window.location.origin : 'https://veritas-dao.vercel.app/');
+
 // Initialize Reown AppKit
 createAppKit({
   adapters: [wagmiAdapter],
@@ -25,7 +27,7 @@ createAppKit({
   metadata: {
     name: 'VeritasDAO',
     description: 'Decentralized Governance and Sequential Election Platform',
-    url: typeof window !== 'undefined' ? window.location.origin : 'https://veritasdao.app',
+    url: appUrl,
     icons: ['https://avatars.githubusercontent.com/u/179229932'],
   },
   themeMode: 'dark',
@@ -42,4 +44,3 @@ createAppKit({
     socials: [],
   },
 });
-

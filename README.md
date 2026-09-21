@@ -40,12 +40,15 @@
 
 ---
 
-## 🌐 Live Bohr Testnet Deployment
+## 🌐 Live Application & Bohr Testnet Deployment
 
-VeritasDAO is live and fully verified on the **Bohr Testnet**:
+- **Live Production dApp**: [https://veritas-dao.vercel.app/](https://veritas-dao.vercel.app/)
+
+VeritasDAO is live, verified, and operating on the **Bohr Testnet**:
 
 | Parameter                            | Value                                                                                                                     |
 | :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------ |
+| **Live Web3 Application**            | [https://veritas-dao.vercel.app/](https://veritas-dao.vercel.app/)                                                        |
 | **Network Name**                     | Bohr Testnet                                                                                                              |
 | **Chain ID**                         | `968`                                                                                                                     |
 | **RPC Endpoint**                     | `https://rpc.bohr.life`                                                                                                   |
