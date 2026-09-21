@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+contract/lib/
+
+# Environment
+.env
+.env.*
+!.env.example
+.env.local
+
+# Build artifacts
+dist/
+out/
+cache/
+broadcast/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+*.log
+

@@ -1,0 +1,1680 @@
+[
+    {
+        "type":  "constructor",
+        "inputs":  [
+                       {
+                           "name":  "_governanceToken",
+                           "type":  "address",
+                           "internalType":  "address"
+                       },
+                       {
+                           "name":  "_chairman",
+                           "type":  "address",
+                           "internalType":  "address"
+                       }
+                   ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "MAX_CANDIDATES_PER_ELECTION",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "PROPOSAL_CREATION_THRESHOLD",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "PROPOSAL_SUPPORT_THRESHOLD",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "addCandidate",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "name",
+                           "type":  "string",
+                           "internalType":  "string"
+                       },
+                       {
+                           "name":  "description",
+                           "type":  "string",
+                           "internalType":  "string"
+                       }
+                   ],
+        "outputs":  [
+
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "closeElection",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "createElection",
+        "inputs":  [
+                       {
+                           "name":  "title",
+                           "type":  "string",
+                           "internalType":  "string"
+                       },
+                       {
+                           "name":  "description",
+                           "type":  "string",
+                           "internalType":  "string"
+                       },
+                       {
+                           "name":  "startTime",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "endTime",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "electionCount",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "electionVotes",
+        "inputs":  [
+                       {
+                           "name":  "",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "",
+                           "type":  "address",
+                           "internalType":  "address"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "voter",
+                            "type":  "address",
+                            "internalType":  "address"
+                        },
+                        {
+                            "name":  "candidateId",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "weight",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "timestamp",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "elections",
+        "inputs":  [
+                       {
+                           "name":  "",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "id",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "title",
+                            "type":  "string",
+                            "internalType":  "string"
+                        },
+                        {
+                            "name":  "description",
+                            "type":  "string",
+                            "internalType":  "string"
+                        },
+                        {
+                            "name":  "startTime",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "endTime",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "status",
+                            "type":  "uint8",
+                            "internalType":  "enum VeritasDAO.ElectionStatus"
+                        },
+                        {
+                            "name":  "winnerCandidateId",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "winningVoteWeight",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "isTie",
+                            "type":  "bool",
+                            "internalType":  "bool"
+                        },
+                        {
+                            "name":  "resultFinalized",
+                            "type":  "bool",
+                            "internalType":  "bool"
+                        },
+                        {
+                            "name":  "totalVotes",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "totalVoteWeight",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "candidateCount",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "createdAt",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "executeApprovedProposal",
+        "inputs":  [
+                       {
+                           "name":  "proposalId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "finalizeElection",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "getAllElections",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "tuple[]",
+                            "internalType":  "struct VeritasDAO.Election[]",
+                            "components":  [
+                                               {
+                                                   "name":  "id",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "title",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "description",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "startTime",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "endTime",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "status",
+                                                   "type":  "uint8",
+                                                   "internalType":  "enum VeritasDAO.ElectionStatus"
+                                               },
+                                               {
+                                                   "name":  "winnerCandidateId",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "winningVoteWeight",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "isTie",
+                                                   "type":  "bool",
+                                                   "internalType":  "bool"
+                                               },
+                                               {
+                                                   "name":  "resultFinalized",
+                                                   "type":  "bool",
+                                                   "internalType":  "bool"
+                                               },
+                                               {
+                                                   "name":  "totalVotes",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "totalVoteWeight",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "candidateCount",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "createdAt",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               }
+                                           ]
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "getAllProposals",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "tuple[]",
+                            "internalType":  "struct VeritasDAO.ElectionProposal[]",
+                            "components":  [
+                                               {
+                                                   "name":  "id",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "proposer",
+                                                   "type":  "address",
+                                                   "internalType":  "address"
+                                               },
+                                               {
+                                                   "name":  "title",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "description",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "proposedStartTime",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "proposedEndTime",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "supportWeight",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "supportCount",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "status",
+                                                   "type":  "uint8",
+                                                   "internalType":  "enum VeritasDAO.ProposalStatus"
+                                               },
+                                               {
+                                                   "name":  "createdAt",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "createdElectionId",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               }
+                                           ]
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "getCandidate",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "candidateId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "tuple",
+                            "internalType":  "struct VeritasDAO.Candidate",
+                            "components":  [
+                                               {
+                                                   "name":  "id",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "name",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "description",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "voteWeight",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "voteCount",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "active",
+                                                   "type":  "bool",
+                                                   "internalType":  "bool"
+                                               }
+                                           ]
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "getCandidates",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "tuple[]",
+                            "internalType":  "struct VeritasDAO.Candidate[]",
+                            "components":  [
+                                               {
+                                                   "name":  "id",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "name",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "description",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "voteWeight",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "voteCount",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "active",
+                                                   "type":  "bool",
+                                                   "internalType":  "bool"
+                                               }
+                                           ]
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "getElection",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "tuple",
+                            "internalType":  "struct VeritasDAO.Election",
+                            "components":  [
+                                               {
+                                                   "name":  "id",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "title",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "description",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "startTime",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "endTime",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "status",
+                                                   "type":  "uint8",
+                                                   "internalType":  "enum VeritasDAO.ElectionStatus"
+                                               },
+                                               {
+                                                   "name":  "winnerCandidateId",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "winningVoteWeight",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "isTie",
+                                                   "type":  "bool",
+                                                   "internalType":  "bool"
+                                               },
+                                               {
+                                                   "name":  "resultFinalized",
+                                                   "type":  "bool",
+                                                   "internalType":  "bool"
+                                               },
+                                               {
+                                                   "name":  "totalVotes",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "totalVoteWeight",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "candidateCount",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "createdAt",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               }
+                                           ]
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "getElectionHistory",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "tuple[]",
+                            "internalType":  "struct VeritasDAO.Election[]",
+                            "components":  [
+                                               {
+                                                   "name":  "id",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "title",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "description",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "startTime",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "endTime",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "status",
+                                                   "type":  "uint8",
+                                                   "internalType":  "enum VeritasDAO.ElectionStatus"
+                                               },
+                                               {
+                                                   "name":  "winnerCandidateId",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "winningVoteWeight",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "isTie",
+                                                   "type":  "bool",
+                                                   "internalType":  "bool"
+                                               },
+                                               {
+                                                   "name":  "resultFinalized",
+                                                   "type":  "bool",
+                                                   "internalType":  "bool"
+                                               },
+                                               {
+                                                   "name":  "totalVotes",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "totalVoteWeight",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "candidateCount",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "createdAt",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               }
+                                           ]
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "getProposal",
+        "inputs":  [
+                       {
+                           "name":  "proposalId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "tuple",
+                            "internalType":  "struct VeritasDAO.ElectionProposal",
+                            "components":  [
+                                               {
+                                                   "name":  "id",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "proposer",
+                                                   "type":  "address",
+                                                   "internalType":  "address"
+                                               },
+                                               {
+                                                   "name":  "title",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "description",
+                                                   "type":  "string",
+                                                   "internalType":  "string"
+                                               },
+                                               {
+                                                   "name":  "proposedStartTime",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "proposedEndTime",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "supportWeight",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "supportCount",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "status",
+                                                   "type":  "uint8",
+                                                   "internalType":  "enum VeritasDAO.ProposalStatus"
+                                               },
+                                               {
+                                                   "name":  "createdAt",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "createdElectionId",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               }
+                                           ]
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "getProposalCandidates",
+        "inputs":  [
+                       {
+                           "name":  "proposalId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "names",
+                            "type":  "string[]",
+                            "internalType":  "string[]"
+                        },
+                        {
+                            "name":  "descriptions",
+                            "type":  "string[]",
+                            "internalType":  "string[]"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "getRegisteredVotersCount",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "getRegisteredVotersList",
+        "inputs":  [
+                       {
+                           "name":  "offset",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "limit",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "address[]",
+                            "internalType":  "address[]"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "getSummaryStats",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "totalElections",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "openElections",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "finalizedElections",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "totalRegisteredVoters",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "totalVotesCast",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "totalVoteWeight",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "getVote",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "voter",
+                           "type":  "address",
+                           "internalType":  "address"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "tuple",
+                            "internalType":  "struct VeritasDAO.VoteRecord",
+                            "components":  [
+                                               {
+                                                   "name":  "voter",
+                                                   "type":  "address",
+                                                   "internalType":  "address"
+                                               },
+                                               {
+                                                   "name":  "candidateId",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "weight",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               },
+                                               {
+                                                   "name":  "timestamp",
+                                                   "type":  "uint256",
+                                                   "internalType":  "uint256"
+                                               }
+                                           ]
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "governanceToken",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "address",
+                            "internalType":  "contract IERC20"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "hasSupportedProposal",
+        "inputs":  [
+                       {
+                           "name":  "",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "",
+                           "type":  "address",
+                           "internalType":  "address"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "bool",
+                            "internalType":  "bool"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "hasVotedInElection",
+        "inputs":  [
+                       {
+                           "name":  "",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "",
+                           "type":  "address",
+                           "internalType":  "address"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "bool",
+                            "internalType":  "bool"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "isRegisteredVoter",
+        "inputs":  [
+                       {
+                           "name":  "",
+                           "type":  "address",
+                           "internalType":  "address"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "bool",
+                            "internalType":  "bool"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "openElection",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "owner",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "address",
+                            "internalType":  "address"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "proposalCount",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "proposals",
+        "inputs":  [
+                       {
+                           "name":  "",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "id",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "proposer",
+                            "type":  "address",
+                            "internalType":  "address"
+                        },
+                        {
+                            "name":  "title",
+                            "type":  "string",
+                            "internalType":  "string"
+                        },
+                        {
+                            "name":  "description",
+                            "type":  "string",
+                            "internalType":  "string"
+                        },
+                        {
+                            "name":  "proposedStartTime",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "proposedEndTime",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "supportWeight",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "supportCount",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "status",
+                            "type":  "uint8",
+                            "internalType":  "enum VeritasDAO.ProposalStatus"
+                        },
+                        {
+                            "name":  "createdAt",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        },
+                        {
+                            "name":  "createdElectionId",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "proposeElection",
+        "inputs":  [
+                       {
+                           "name":  "title",
+                           "type":  "string",
+                           "internalType":  "string"
+                       },
+                       {
+                           "name":  "description",
+                           "type":  "string",
+                           "internalType":  "string"
+                       },
+                       {
+                           "name":  "proposedStartTime",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "proposedEndTime",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "candidateNames",
+                           "type":  "string[]",
+                           "internalType":  "string[]"
+                       },
+                       {
+                           "name":  "candidateDescriptions",
+                           "type":  "string[]",
+                           "internalType":  "string[]"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "uint256",
+                            "internalType":  "uint256"
+                        }
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "registerVoter",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "registeredVotersList",
+        "inputs":  [
+                       {
+                           "name":  "",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+                        {
+                            "name":  "",
+                            "type":  "address",
+                            "internalType":  "address"
+                        }
+                    ],
+        "stateMutability":  "view"
+    },
+    {
+        "type":  "function",
+        "name":  "renounceOwnership",
+        "inputs":  [
+
+                   ],
+        "outputs":  [
+
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "supportProposal",
+        "inputs":  [
+                       {
+                           "name":  "proposalId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "transferOwnership",
+        "inputs":  [
+                       {
+                           "name":  "newOwner",
+                           "type":  "address",
+                           "internalType":  "address"
+                       }
+                   ],
+        "outputs":  [
+
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "function",
+        "name":  "vote",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "candidateId",
+                           "type":  "uint256",
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "outputs":  [
+
+                    ],
+        "stateMutability":  "nonpayable"
+    },
+    {
+        "type":  "event",
+        "name":  "CandidateAdded",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "candidateId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "name",
+                           "type":  "string",
+                           "indexed":  false,
+                           "internalType":  "string"
+                       },
+                       {
+                           "name":  "description",
+                           "type":  "string",
+                           "indexed":  false,
+                           "internalType":  "string"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "event",
+        "name":  "ElectionClosed",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "timestamp",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "event",
+        "name":  "ElectionCreated",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "title",
+                           "type":  "string",
+                           "indexed":  false,
+                           "internalType":  "string"
+                       },
+                       {
+                           "name":  "startTime",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "endTime",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "creator",
+                           "type":  "address",
+                           "indexed":  true,
+                           "internalType":  "address"
+                       },
+                       {
+                           "name":  "timestamp",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "event",
+        "name":  "ElectionFinalized",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "winnerCandidateId",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "winningVoteWeight",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "isTie",
+                           "type":  "bool",
+                           "indexed":  false,
+                           "internalType":  "bool"
+                       },
+                       {
+                           "name":  "timestamp",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "event",
+        "name":  "ElectionOpened",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "startTime",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "endTime",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "timestamp",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "event",
+        "name":  "ElectionProposalApproved",
+        "inputs":  [
+                       {
+                           "name":  "proposalId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "timestamp",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "event",
+        "name":  "ElectionProposalCreated",
+        "inputs":  [
+                       {
+                           "name":  "proposalId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "proposer",
+                           "type":  "address",
+                           "indexed":  true,
+                           "internalType":  "address"
+                       },
+                       {
+                           "name":  "title",
+                           "type":  "string",
+                           "indexed":  false,
+                           "internalType":  "string"
+                       },
+                       {
+                           "name":  "timestamp",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "event",
+        "name":  "ElectionProposalExecuted",
+        "inputs":  [
+                       {
+                           "name":  "proposalId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "createdElectionId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "timestamp",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "event",
+        "name":  "ElectionProposalSupported",
+        "inputs":  [
+                       {
+                           "name":  "proposalId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "supporter",
+                           "type":  "address",
+                           "indexed":  true,
+                           "internalType":  "address"
+                       },
+                       {
+                           "name":  "supportWeight",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "newTotalSupportWeight",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "event",
+        "name":  "OwnershipTransferred",
+        "inputs":  [
+                       {
+                           "name":  "previousOwner",
+                           "type":  "address",
+                           "indexed":  true,
+                           "internalType":  "address"
+                       },
+                       {
+                           "name":  "newOwner",
+                           "type":  "address",
+                           "indexed":  true,
+                           "internalType":  "address"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "event",
+        "name":  "VoteCast",
+        "inputs":  [
+                       {
+                           "name":  "electionId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "voter",
+                           "type":  "address",
+                           "indexed":  true,
+                           "internalType":  "address"
+                       },
+                       {
+                           "name":  "candidateId",
+                           "type":  "uint256",
+                           "indexed":  true,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "weight",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       },
+                       {
+                           "name":  "timestamp",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "event",
+        "name":  "VoterRegistered",
+        "inputs":  [
+                       {
+                           "name":  "voter",
+                           "type":  "address",
+                           "indexed":  true,
+                           "internalType":  "address"
+                       },
+                       {
+                           "name":  "timestamp",
+                           "type":  "uint256",
+                           "indexed":  false,
+                           "internalType":  "uint256"
+                       }
+                   ],
+        "anonymous":  false
+    },
+    {
+        "type":  "error",
+        "name":  "OwnableInvalidOwner",
+        "inputs":  [
+                       {
+                           "name":  "owner",
+                           "type":  "address",
+                           "internalType":  "address"
+                       }
+                   ]
+    },
+    {
+        "type":  "error",
+        "name":  "OwnableUnauthorizedAccount",
+        "inputs":  [
+                       {
+                           "name":  "account",
+                           "type":  "address",
+                           "internalType":  "address"
+                       }
+                   ]
+    },
+    {
+        "type":  "error",
+        "name":  "ReentrancyGuardReentrantCall",
+        "inputs":  [
+
+                   ]
+    }
+]
